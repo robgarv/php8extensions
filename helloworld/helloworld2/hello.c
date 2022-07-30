@@ -4,15 +4,16 @@
 #include "php.h"
 #include "php_hello.h"
 
+ZEND_BEGIN_ARG_INFO_EX(arginfo_hello_world, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
 static zend_function_entry hello_functions[] = {
-    PHP_FE(hello_world, NULL)
+    PHP_FE(hello_world, arginfo_hello_world)
     {NULL, NULL, NULL}
 };
 
 zend_module_entry hello_module_entry = {
-#if ZEND_MODULE_API_NO >= 20010901
     STANDARD_MODULE_HEADER,
-#endif
     PHP_HELLO_WORLD_EXTNAME,
     hello_functions,
     NULL,
@@ -20,11 +21,10 @@ zend_module_entry hello_module_entry = {
     NULL,
     NULL,
     NULL,
-#if ZEND_MODULE_API_NO >= 20010901
     PHP_HELLO_WORLD_VERSION,
-#endif
     STANDARD_MODULE_PROPERTIES
 };
+
 
 #ifdef COMPILE_DL_HELLO
 ZEND_GET_MODULE(hello)

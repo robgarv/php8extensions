@@ -3,10 +3,13 @@
 // then include the header of your extension
 #include "php_helloworld.h"
 
+// Descibe out function
+ZEND_BEGIN_ARG_INFO_EX(arginfo_helloworld_php, 0, 0, 0)
+ZEND_END_ARG_INFO()
 // register our function to the PHP API 
 // so that PHP knows, which functions are in this module
 zend_function_entry helloworld_php_functions[] = {
-    PHP_FE(helloworld_php, NULL)
+    PHP_FE(helloworld_php, arginfo_helloworld_php)
     {NULL, NULL, NULL}
 };
 
