@@ -12,6 +12,8 @@ ZEND_END_ARG_INFO()
 
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_populatearray, 0, 0, 1)
+    // Because array needs to receive data from extension
+    // (userland write) need to set first arg to 1
     ZEND_ARG_INFO(1, readarray)
 ZEND_END_ARG_INFO()
 
