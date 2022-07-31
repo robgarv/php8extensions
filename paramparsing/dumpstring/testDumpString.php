@@ -24,13 +24,15 @@
   foreach ($myTable as $key => $val )
   {
     $outstring = dumparrayval($key, $myTable);
+    //$outstring = dumparrayval($key, $val);
+    
     if (empty($outstring))
     {
       print "dumparrayval fails to fetch from key: $key\n";
     }
     else
     {
-      print "dumparrayval $key => $val\n";
+      print "dumparrayval $key => $val ($outstring)\n";
     }
   }
   

@@ -47,13 +47,24 @@ do { \
   _PRINTIT( "STATUS", __x_Msg ); \
 } while( 0 )
 
+ZEND_BEGIN_ARG_INFO_EX(arginfo_dumpstring, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_dumpinput, 0, 0, 1)
+    ZEND_ARG_INFO(0, input)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_dumparrayval, 0, 0, 0)
+    ZEND_ARG_INFO(0, tablekey)
+    ZEND_ARG_INFO(0, value)
+ZEND_END_ARG_INFO()
 
 // register our function to the PHP API 
 // so that PHP knows, which functions are in this module
 zend_function_entry dumpstring_functions[] = {
-    PHP_FE(dumpstring, NULL)
-    PHP_FE(dumpinput, NULL)
-    PHP_FE(dumparrayval, NULL)
+    PHP_FE(dumpstring, arginfo_dumpstring)
+    PHP_FE(dumpinput, arginfo_dumpinput)
+    PHP_FE(dumparrayval, arginfo_dumparrayval)
     {NULL, NULL, NULL}
 };
 
