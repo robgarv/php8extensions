@@ -11,11 +11,8 @@ execution of the extension to facilitate attaching a debugger.
 
 
 cd dumparray
-
 phpize
-
 ./configure
-
 make
 
 You can build for debugging with gdb by configuring and making as follows
@@ -26,7 +23,7 @@ make
 
 ## To run the example
 
-./rundumparray
+./rundumparray.sh
 
 ## Debugging
 

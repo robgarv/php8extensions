@@ -14,6 +14,6 @@
   {
     $newTable["NKey$i"] = "NVal$i";
   }
-  print "Array Dump Test: New PHP 7 Hash Table API\n";
+  print "Array Dump Test: New PHP 8 Hash Table API\n";
   dumparray_new($newTable);
 ?>

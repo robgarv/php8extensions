@@ -47,12 +47,19 @@ do { \
   _PRINTIT( "STATUS", __x_Msg ); \
 } while( 0 )
 
+ZEND_BEGIN_ARG_INFO_EX(arginfo_dumparray, 0, 0, 0)
+  ZEND_ARG_INFO(0, thearray)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_dumparray_new, 0, 0, 0)
+  ZEND_ARG_INFO(0, thearray)
+ZEND_END_ARG_INFO()
 
 // register our function to the PHP API 
 // so that PHP knows, which functions are in this module
 zend_function_entry dumparray_functions[] = {
-    PHP_FE(dumparray, NULL)
-    PHP_FE(dumparray_new, NULL)
+    PHP_FE(dumparray, arginfo_dumparray)
+    PHP_FE(dumparray_new, arginfo_dumparray_new)
     {NULL, NULL, NULL}
 };
 
