@@ -6,11 +6,23 @@
 
 using namespace std;
 
+ZEND_BEGIN_ARG_INFO_EX(arginfo_populatefromarray, 0, 0, 1)
+    ZEND_ARG_INFO(0, writearray)
+ZEND_END_ARG_INFO()
+
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_populatearray, 0, 0, 1)
+    ZEND_ARG_INFO(1, readarray)
+ZEND_END_ARG_INFO()
+
+// Why not fetch an array by type? It works but
+// this is simpler
+//      ZEND_ARG_ARRAY_INFO(1, readarray, 0)
 
 // register our functions to the PHP API 
 // so that PHP knows, which functions are in this module
 zend_function_entry populate1_functions[] = {
-    PHP_FE(populatefromarray, NULL)
+    PHP_FE(populatefromarray, arginfo_populatefromarray)
     PHP_FE(populatearray, arginfo_populatearray)
     {NULL, NULL, NULL}
 };
@@ -144,7 +156,7 @@ PHP_FUNCTION(populatearray)
                 break;
         }
     }
-
+#define _POPULATE1_INTERNAL_DUMP 
 #ifdef _POPULATE1_INTERNAL_DUMP
     {
         ulong numKey;
@@ -164,12 +176,7 @@ PHP_FUNCTION(populatearray)
         } ZEND_HASH_FOREACH_END();
     }
 #endif
-    RETVAL_LONG(zend_hash_num_elements(Z_ARRVAL_P(table)))
-}
-
-PHP_FUNCTION(dumpzval)
-{
-
+    RETVAL_LONG(zend_hash_num_elements(Z_ARRVAL_P(table)));
 }
 
 

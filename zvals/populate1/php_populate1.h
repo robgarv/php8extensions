@@ -22,10 +22,13 @@ PHP_FUNCTION(populatearray);
 // passed by reference, we need to declare our arguments
 // If first arg to ZEND_ARG_INFO is 1 then the argument
 // is to be passed by reference.
-ZEND_BEGIN_ARG_INFO_EX(arginfo_populatearray, 0, 0, 1)
-  ZEND_ARG_INFO(1, table) /* ARRAY_INFO(1, stack, 0) */
-ZEND_END_ARG_INFO()
+// ZEND_BEGIN_ARG_INFO_EX(arginfo_populatearray, 0, 0, 1)
+//   ZEND_ARG_INFO(1, table) /* ARRAY_INFO(1, stack, 0) */
+// ZEND_END_ARG_INFO()
 
+// ZEND_BEGIN_ARG_INFO_EX(arginfo_populatefromarray, 0, 0, 1)
+//     ZEND_ARG_INFO(0, writearray)
+// ZEND_END_ARG_INFO()
 
 extern zend_module_entry populate1_module_entry;
 #define phpext_populate1_ptr &populate1_module_entry
